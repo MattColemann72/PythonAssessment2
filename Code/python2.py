@@ -303,7 +303,7 @@ def eight(input,  a):
 	str_len = len(input)
 	str_out = [input]
 	max_takeaway = (str_len / 2) - 0.5
-	str.replace(str_out[a], ":(")
+	str.replace(str_out[a], ":(") 
 
 	return str_out
 
