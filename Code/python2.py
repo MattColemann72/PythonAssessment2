@@ -1,3 +1,5 @@
+from random import randint, random	
+	
 	# INSTRUCTIONS
 
 	# In case it is not clear, the Question appears first, then examples, then any hints and finally the function that you need to complete appears underneath:
@@ -29,8 +31,24 @@
 	# <HINT>
 	# How does a for loop iterate through a string?
 
+from typing import Counter
+
+
 def one(input):
-	return ""
+	str_input = list(input)
+	counter = 3
+	i=0
+	str_output = ""
+	for character in str_input:
+		i=0
+		while i < counter:
+			i += 1
+			str_output += character
+	return str_output
+
+#print(one("The job"))
+
+#####################################################################################################################
 
 	# <QUESTION 2>
 
@@ -48,7 +66,15 @@ def one(input):
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(range).
 
 def two(input):
-    return False
+	if input == 2 or input == 3 or input == 5 or input == 7:
+		return True
+	elif input % 2 == 0 or input % 3 == 0 or input % 5 == 0 or input % 7 == 0:
+		return False
+	return True
+
+#print(two(73))
+
+#####################################################################################################################
 
 	# <QUESTION 3>
 
@@ -64,8 +90,46 @@ def two(input):
 	# <HINT>
 	# What happens if you multiply a string by a number?
 
+######################################
+# Not sure why this is failing tests #
+######################################
+
 def three(a):
-	return 1
+	#int_input = int(a)
+	str_input = str(a)
+	counter = 0
+	num_chars = 1
+	str_output = ""
+	sum_output = 0
+	
+	while counter <= num_chars:
+		if num_chars < 5:
+			if counter == num_chars:
+				num_chars += 1
+				if num_chars != 5:
+					str_output += "+"
+			else:
+				dup_amount = 1
+				while dup_amount <= num_chars:
+					str_output += str_input
+					dup_amount += 1	
+				counter += 1
+		else:
+			break
+	int_input = str_output.split("+")
+	num1 = int_input[0]
+	num2 = int_input[1]
+	num3 = int_input[2]
+	num4 = int_input[3]
+	sum_output = int(num1) + int(num2) + int(num3) + int(num4)
+	return f"{str_output} = {str(sum_output)}"
+
+#print(three(9))
+
+
+
+
+#####################################################################################################################
 
 	# <QUESTION 4>
 
@@ -94,7 +158,22 @@ def three(a):
 	# How would you seperate a string into characters?
 
 def four(input1, input2):
-	return ""
+	str_input1 = list(input1)
+	str_input2 = list(input2)
+	counter = len(input1)
+	cond = 0
+	str_output = ""
+	for _char in str_input1:
+		if cond < counter:
+			_char2 = str_input2[cond]
+			str_output += _char + _char2
+			cond += 1
+	return str_output
+
+# print(four("hello", "BUMPY"))
+
+
+#####################################################################################################################
 
 	# <QUESTION 5>
 
@@ -111,7 +190,22 @@ def four(input1, input2):
 	# The random module contains a function called randint.
 
 def five():
-    return []
+	max_num = 5
+	random_num = 0
+	num = 0
+	five_nums = []
+	while num < max_num:
+		random_num = randint(100,200)
+		if random_num % 2 == 0:
+			five_nums.append(random_num)
+			num += 1
+			
+	return five_nums
+#print(five())
+
+#####################################################################################################################
+
+
 
 	# <QUESTION 6>
 
@@ -128,9 +222,22 @@ def five():
 
 	# <HINT>
 	# There are no hints for this question.
-    
+
+
+
+
+
+
+
 def six(input):
+	str_input = input.lower()
+	if str_input.endswith("py"):
+		return True
 	return False
+
+#print(six("Hankpy"))
+
+#####################################################################################################################
 
 	# <QUESTION 7>
 
@@ -154,7 +261,25 @@ def six(input):
 	# Use the cli to access the documentation help(list.sort)
 
 def seven(a, b, c):
+	lst_import = [a,b,c]
+	lst_import.sort()
+	print(lst_import)
+	num1 = lst_import[0]
+	num2 = lst_import[1]
+	num3 = lst_import[2]
+
+	low_mid = num2 - num1
+	high_mid = num3 - num2
+
+	if low_mid == high_mid:
+		return True
 	return False
+
+#seven(12,51,5)
+
+
+
+#####################################################################################################################
 
 	# <QUESTION 8>
 
@@ -171,8 +296,21 @@ def seven(a, b, c):
 	# <HINT>
     # Use the cli to access the documentation help(str.replace)
 
+
+
+
 def eight(input,  a):
-	return ""
+	str_len = len(input)
+	str_out = [input]
+	max_takeaway = (str_len / 2) - 0.5
+	str.replace(str_out[a], ":(")
+
+	return str_out
+
+eight("Chocolate", 1)
+
+
+#####################################################################################################################
 
 	# <QUESTION 9>
 
